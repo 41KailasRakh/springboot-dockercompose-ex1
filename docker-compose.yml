@@ -23,6 +23,8 @@ services:
       MYSQL_PASSWORD: testpass
     ports:
       - "3306:3306"  # Fix this: expose default MySQL port
+    volumes:
+      - mysql_data:/var/lib/mysql
     networks:
       - mynet
     healthcheck:
@@ -34,3 +36,5 @@ services:
 networks:
   mynet:
     driver: bridge
+volumes:
+  mysql_data:
