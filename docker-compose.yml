@@ -10,17 +10,17 @@ services:
     networks:
       - mynet
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/testdb
-      SPRING_DATASOURCE_USERNAME: testuser
-      SPRING_DATASOURCE_PASSWORD: testpass
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
 
   mysql-db:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: testdb
-      MYSQL_USER: testuser
-      MYSQL_PASSWORD: testpass
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"  # Fix this: expose default MySQL port
     volumes:
